@@ -16,6 +16,7 @@
       console.log("clicked");
       // Will initialize the SDK and register for push notifications
       OneSignal.push(function () {
+        OneSignal.initializeConfig();
         OneSignal.showNativePrompt();
         OneSignal.getNotificationPermission();
       });
