@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OneSignal Push</title>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script src="./push.js"></script>
   </head>
   <body>
     <button onclick="userTappedProvideConsentButton()">CONSENT</button>
   </body>
-  <script src="./push.js"></script>
   <script>
-    var obj = window.OneSignal.isLocalhostAllowedAsSecureOrigin;
     function userTappedProvideConsentButton() {
       console.log("clicked");
       // Will initialize the SDK and register for push notifications
       OneSignal.push(function () {
         OneSignal.initializeConfig();
+        console.log(OneSignal.appId);
         OneSignal.showNativePrompt();
         OneSignal.getNotificationPermission();
       });
